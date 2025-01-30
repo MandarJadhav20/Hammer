@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Card Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            background: #fff;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            background: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card-back p {
+            margin: 0 0 20px;
+            font-size: 16px;
+        }
+
+        .card-back button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .card-back button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/assets/Hammer-best-True-wireless-Earbuds-co_600x (1).jpg" alt="Card Front">
+                </div>
+                <div class="card-back">
+                    <p>This is the back side of the card.</p>
+                    <button>Click Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/assets/Hammer-Bluetooth-Calling-watch-c0_600x (1).jpg" alt="Card Front">
+                </div>
+                <div class="card-back">
+                    <p>This is another card's back side.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/assets/Hammer-True-wireless-Earbuds-co_600x (1).jpg" alt="Card Front">
+                </div>
+                <div class="card-back">
+                    <p>This is another card's back side.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/assets/Hammer-Bluetooth-Calling-watch-c0_600x (1).jpg" alt="Card Front">
+                </div>
+                <div class="card-back">
+                    <p>This is another card's back side.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="assets/assets/Hammer-Bluetooth-Calling-watch-c0_600x (1).jpg" alt="Card Front">
+                </div>
+                <div class="card-back">
+                    <p>This is another card's back side.</p>
+                    <button>Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

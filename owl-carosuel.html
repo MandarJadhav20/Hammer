@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Card Slider</title>
+<style>
+   
+   .multiplesider {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f3f3;
+}
+
+.carousell-container {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  overflow: hidden;
+}
+
+.carousell {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.cardd {
+  min-width: 300px;
+  margin: 0 10px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardd:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+  border-radius: 5px;
+}
+
+button.prevv {
+  left: 10px;
+}
+
+button.nextt {
+  right: 10px;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+</style></head>
+<body>
+  <div class="multiplesider">
+    <div class="carousell-container">
+      <div class="carousell">
+        <div class="cardd"><img src="assets/assets/adgully.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/AMAZon.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/ANI.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/BLINKIT.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/CRED.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/Croma.jpg"/></div>
+        <div class="cardd"><img src="assets/assets/DAINIK_JAGRAN.jpg"/></div>
+      </div>
+      <button class="prevv">❮</button>
+      <button class="nextt">❯</button>
+    </div>
+  </div>
+
+  <script>
+ 
+const carousell = document.querySelector('.carousell');
+const cards = document.querySelectorAll('.cardd');
+const prevButton = document.querySelector('.prevv');
+const nextButton = document.querySelector('.nextt');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+
+  const offset = -currentIndex * (cards[0].offsetWidth + 20); // Include margin
+  carousell.style.transform = `translateX(${offset}px)`;
+}
+
+// Move to the next set of cards
+nextButton.addEventListener('click', () => {
+  if (currentIndex < cards.length - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+});
+
+
+window.addEventListener('resize', updateCarousel);
+
+  </script>
+</body>
+</html>
